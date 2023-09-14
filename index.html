@@ -14,7 +14,7 @@
       html,
       body {
         height: 100%;
-        background-color: #1a1a1a;
+        background-color: #f2f2f2;
       }
 
       body {
@@ -33,10 +33,9 @@
 
       .signature {
         width: 100%;
-        background-color: #1a1a1a;
+        background-color: #ffffff;
         border-radius: 8px;
-        border: 1px solid #4d4d4d;
-        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+        border: 1px solid #b3b3b3;
         padding: 32px;
       }
 
@@ -49,7 +48,7 @@
         font-family: Helvetica, sans-serif;
         font-weight: 900;
         font-size: 56px;
-        color: #ffffff;
+        color: #1a1a1a;
       }
 
       header p {
@@ -57,7 +56,7 @@
         font-family: Helvetica, sans-serif;
         font-weight: 400;
         font-size: 20px;
-        color: #ffffff;
+        color: #1a1a1a;
       }
     </style>
   </head>
@@ -73,48 +72,36 @@
   </body>
 
   <script>
-    const main = document.getElementsByTagName("main")[0];
-    const directoryPath = "./signatures";
+    const repositoryUrl = "https://github.com/patriarxis/email-signatures/";
+    const directoryPath = "signatures/";
 
-    fetchHTMLFiles(directoryPath)
-      .then((htmlFiles) => {
-        main.innerHTML = htmlFiles.join("");
-      })
-      .catch((error) => {
-        console.error(error);
-        main.textContent = "Error loading HTML files.";
-      });
+    async function loadHTMLFiles() {
+      const signatureContainer = document.getElementsByTagName("main")[0];
 
-    async function fetchHTMLFiles(directoryPath) {
       try {
-        const response = await fetch(directoryPath);
-        if (!response.ok) {
-          throw new Error("Failed to fetch directory listing.");
-        }
-        const listing = await response.text();
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(listing, "text/html");
-        const anchorElements = doc.querySelectorAll("table a");
-        const htmlFiles = Array.from(anchorElements)
-          .map((anchor) => anchor.textContent)
-          .filter((fileName) => fileName.endsWith(".html"));
-
-        const fileContents = await Promise.all(
-          htmlFiles.map(async (fileName) => {
-            const filePath = `${directoryPath}${fileName}`;
-            const fileResponse = await fetch(filePath);
-            if (!fileResponse.ok) {
-              throw new Error(`Failed to fetch ${fileName}`);
-            }
-            const fileText = await fileResponse.text();
-            return `<div class="signature">${fileText}</div>`;
-          })
+        const response = await fetch(
+          `https://api.github.com/repos/patriarxis/email-signatures/contents/${directoryPath}`
         );
+        const files = await response.json();
 
-        return fileContents;
+        for (const file of files) {
+          const fileName = file.name;
+          if (fileName.endsWith(".html")) {
+            const rawResponse = await fetch(file.download_url);
+            const htmlContent = await rawResponse.text();
+
+            const signatureDiv = document.createElement("div");
+            signatureDiv.innerHTML = htmlContent;
+            signatureDiv.classList.add("signature");
+
+            signatureContainer.appendChild(signatureDiv);
+          }
+        }
       } catch (error) {
-        throw error;
+        console.error("Error loading HTML files:", error);
       }
     }
+
+    window.addEventListener("load", loadHTMLFiles);
   </script>
 </html>
