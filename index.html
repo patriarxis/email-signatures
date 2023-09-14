@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>signatures Signatures</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        height: 100%;
+        background-color: #1a1a1a;
+      }
+
+      body {
+        width: 100%;
+        max-width: 800px;
+        padding: 0 8px;
+        margin: 0 auto;
+      }
+
+      main {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        margin: 64px 0;
+      }
+
+      .signature {
+        width: 100%;
+        background-color: #1a1a1a;
+        border-radius: 8px;
+        border: 1px solid #4d4d4d;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+        padding: 32px;
+      }
+
+      header {
+        padding: 24px 0;
+      }
+
+      header h1 {
+        text-align: center;
+        font-family: Helvetica, sans-serif;
+        font-weight: 900;
+        font-size: 56px;
+        color: #ffffff;
+      }
+
+      header p {
+        text-align: center;
+        font-family: Helvetica, sans-serif;
+        font-weight: 400;
+        font-size: 20px;
+        color: #ffffff;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Email Signatures</h1>
+      <p>
+        These are some email signatures I used over the years. Feel free to copy
+        them and use them as you please.
+      </p>
+    </header>
+    <main></main>
+  </body>
+
+  <script>
+    const main = document.getElementsByTagName("main")[0];
+    const directoryPath = "signatures/";
+
+    fetchHTMLFiles(directoryPath)
+      .then((htmlFiles) => {
+        main.innerHTML = htmlFiles.join("");
+      })
+      .catch((error) => {
+        console.error(error);
+        main.textContent = "Error loading HTML files.";
+      });
+
+    async function fetchHTMLFiles(directoryPath) {
+      try {
+        const response = await fetch(directoryPath);
+        if (!response.ok) {
+          throw new Error("Failed to fetch directory listing.");
+        }
+        const listing = await response.text();
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(listing, "text/html");
+        const anchorElements = doc.querySelectorAll("table a");
+        const htmlFiles = Array.from(anchorElements)
+          .map((anchor) => anchor.textContent)
+          .filter((fileName) => fileName.endsWith(".html"));
+
+        const fileContents = await Promise.all(
+          htmlFiles.map(async (fileName) => {
+            const filePath = `${directoryPath}${fileName}`;
+            const fileResponse = await fetch(filePath);
+            if (!fileResponse.ok) {
+              throw new Error(`Failed to fetch ${fileName}`);
+            }
+            const fileText = await fileResponse.text();
+            return `<div class="signature">${fileText}</div>`;
+          })
+        );
+
+        return fileContents;
+      } catch (error) {
+        throw error;
+      }
+    }
+  </script>
+</html>
