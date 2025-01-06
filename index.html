@@ -1,107 +1,13 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>signatures Signatures</title>
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      html,
-      body {
-        height: 100%;
-        background-color: #f2f2f2;
-      }
-
-      body {
-        width: 100%;
-        max-width: 800px;
-        padding: 0 8px;
-        margin: 0 auto;
-      }
-
-      main {
-        display: flex;
-        flex-direction: column;
-        gap: 40px;
-        margin: 64px 0;
-      }
-
-      .signature {
-        width: 100%;
-        background-color: #ffffff;
-        border-radius: 8px;
-        border: 1px solid #b3b3b3;
-        padding: 32px;
-      }
-
-      header {
-        padding: 24px 0;
-      }
-
-      header h1 {
-        text-align: center;
-        font-family: Helvetica, sans-serif;
-        font-weight: 900;
-        font-size: 56px;
-        color: #1a1a1a;
-      }
-
-      header p {
-        text-align: center;
-        font-family: Helvetica, sans-serif;
-        font-weight: 400;
-        font-size: 20px;
-        color: #1a1a1a;
-      }
-    </style>
+    <title>Vite + Vue + TS</title>
   </head>
   <body>
-    <header>
-      <h1>Email Signatures</h1>
-      <p>
-        These are some email signatures I used over the years. Feel free to copy
-        them and use them as you please.
-      </p>
-    </header>
-    <main></main>
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
   </body>
-
-  <script>
-    const repositoryUrl = "https://github.com/patriarxis/email-signatures/";
-    const directoryPath = "signatures/";
-
-    async function loadHTMLFiles() {
-      const signatureContainer = document.getElementsByTagName("main")[0];
-
-      try {
-        const response = await fetch(
-          `https://api.github.com/repos/patriarxis/email-signatures/contents/${directoryPath}`
-        );
-        const files = await response.json();
-
-        for (const file of files) {
-          const fileName = file.name;
-          if (fileName.endsWith(".html")) {
-            const rawResponse = await fetch(file.download_url);
-            const htmlContent = await rawResponse.text();
-
-            const signatureDiv = document.createElement("div");
-            signatureDiv.innerHTML = htmlContent;
-            signatureDiv.classList.add("signature");
-
-            signatureContainer.appendChild(signatureDiv);
-          }
-        }
-      } catch (error) {
-        console.error("Error loading HTML files:", error);
-      }
-    }
-
-    window.addEventListener("load", loadHTMLFiles);
-  </script>
 </html>

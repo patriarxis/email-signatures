@@ -1,0 +1,55 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --neutral-10: #0d0d0d;
+  --neutral-9: #1a1a1a;
+  --neutral-8: #333333;
+  --neutral-7: #4d4d4d;
+  --neutral-6: #666666;
+  --neutral-5: #808080;
+  --neutral-4: #999999;
+  --neutral-3: #b3b3b3;
+  --neutral-2: #cccccc;
+  --neutral-1: #e6e6e6;
+  --neutral-0: #e6e6e6;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+html,
+body {
+  overflow: auto;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  color: var(--neutral-9);
+  background-color: var(--neutral-1);
+}
+
+#app {
+  width: 100%;
+  height: 100%;
+}
