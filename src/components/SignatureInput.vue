@@ -1,4 +1,3 @@
-// SignatureInput.vue
 <template>
   <aside class="aside">
     <header class="header">
@@ -64,8 +63,6 @@
         :value="userData.website"
         @input="handleWebsiteChange"
       />
-
-      <label for="websiteUrl">Website URL:</label>
       <input
         type="url"
         id="websiteUrl"
@@ -150,26 +147,18 @@ export default {
       type: Object,
       required: true,
       default: () => ({
-        name: "name",
-        description: "description",
-        companyName: "companyName",
-        companyTagline: "companyTagline",
-        phone: "phone",
-        email: "email",
-        website: "website",
-        websiteUrl: "websiteUrl",
-        bodyLinks: [
-          { text: "bodyLink", url: "https://" },
-          { text: "bodyLink", url: "https://" },
-          { text: "bodyLink", url: "https://" },
-        ],
-        socialLinks: [
-          { text: "socialLink", url: "https://" },
-          { text: "socialLink", url: "https://" },
-          { text: "socialLink", url: "https://" },
-        ],
-        copyrights: "copyrights",
-        disclaimer: "disclaimer",
+        name: "",
+        description: "",
+        companyName: "",
+        companyTagline: "",
+        phone: "",
+        email: "",
+        website: "",
+        websiteUrl: "",
+        bodyLinks: [],
+        socialLinks: [],
+        copyrights: "",
+        disclaimer: "",
       }),
     },
   },

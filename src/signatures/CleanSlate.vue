@@ -2,169 +2,113 @@
   <table
     cellspacing="0"
     cellpadding="0"
+    border="0"
     style="
+      display: table;
       border-collapse: separate;
       border-spacing: 0;
-      width: 100%;
-      font-family: sans-serif;
-      max-width: 800px;
-      min-width: 500px;
-      color: #0d0d0d;
-      display: table;
       vertical-align: top;
+      width: 100%;
+      max-width: 600px;
+      min-width: 320px;
+      font-family: Arial, sans-serif;
     "
   >
-    <tbody>
-      <tr>
-        <td>
-          <table
-            cellspacing="0"
-            cellpadding="0"
-            style="border-collapse: separate; border-spacing: 0; width: 100%"
-          >
-            <tbody>
-              <tr>
-                <td
+    <tr>
+      <td>
+        <table
+          cellspacing="0"
+          cellpadding="0"
+          border="0"
+          style="
+            border-collapse: separate;
+            border-spacing: 0;
+            width: 100%;
+            background-color: #f2f2f2;
+            border: 1px solid #d1d1d1;
+            border-radius: 4px;
+            padding: 16px;
+          "
+        >
+          <tr>
+            <td>
+              <p
+                style="
+                  font-family: Arial, sans-serif;
+                  font-size: 18px;
+                  font-weight: 700;
+                  margin: 0;
+                  color: #333333;
+                "
+              >
+                {{ name }}
+              </p>
+              <p
+                style="
+                  font-family: Arial, sans-serif;
+                  font-size: 14px;
+                  font-weight: 400;
+                  margin: 0;
+                  margin-top: 4px;
+                  color: #666666;
+                "
+              >
+                {{ description }}
+              </p>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding: 12px 0">
+              <template v-for="(link, index) in bodyLinks" :key="link.url">
+                <a
+                  :href="link.url"
                   style="
-                    background-color: #f2f2f2;
-                    border: 1px solid #b3b3b3;
-                    border-radius: 8px;
-                    padding: 16px;
+                    display: block;
+                    text-decoration: none;
+                    font-family: Arial, sans-serif;
+                    font-size: 14px;
+                    font-weight: 400;
+                    color: #333333;
+                    margin-bottom: 4px;
                   "
+                  >{{ link.text }}</a
                 >
-                  <table
-                    cellspacing="0"
-                    cellpadding="0"
-                    style="
-                      border-collapse: separate;
-                      border-spacing: 0;
-                      width: 100%;
-                    "
-                  >
-                    <tbody>
-                      <tr>
-                        <td>
-                          <table
-                            cellspacing="0"
-                            cellpadding="0"
-                            style="
-                              border-collapse: separate;
-                              border-spacing: 0;
-                              width: 100%;
-                            "
-                          >
-                            <tbody>
-                              <tr>
-                                <td style="padding-bottom: 16px">
-                                  <h1
-                                    style="
-                                      margin: 0;
-                                      font-size: 20px;
-                                      font-weight: 900;
-                                      color: #0d0d0d;
-                                    "
-                                  >
-                                    {{ name }}
-                                  </h1>
-                                  <h2
-                                    style="
-                                      margin: 0;
-                                      font-size: 16px;
-                                      font-weight: 400;
-                                      color: #0d0d0d;
-                                    "
-                                  >
-                                    {{ description }}
-                                  </h2>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td style="padding-bottom: 16px">
-                                  <a
-                                    v-for="(bodyLink, index) in bodyLinks"
-                                    :key="index"
-                                    :href="bodyLink.url"
-                                    target="_blank"
-                                    style="
-                                      display: block;
-                                      color: #0d0d0d;
-                                      text-decoration: none;
-                                      font-size: 14px;
-                                      font-weight: 400;
-                                      width: max-content;
-                                      margin-bottom: 4px;
-                                    "
-                                    >{{ bodyLink.text }}</a
-                                  >
-                                </td>
-                              </tr>
-                            </tbody>
-                          </table>
-                        </td>
-                      </tr>
-
-                      <tr>
-                        <td>
-                          <table
-                            cellspacing="0"
-                            cellpadding="0"
-                            style="
-                              border-collapse: separate;
-                              border-spacing: 0;
-                              width: 100%;
-                            "
-                          >
-                            <tbody>
-                              <tr>
-                                <td
-                                  style="
-                                    border-top: 1px solid #b3b3b3;
-                                    padding-top: 16px;
-                                    font-size: 14px;
-                                  "
-                                >
-                                  <template
-                                    v-for="(socialLink, index) in socialLinks"
-                                    :key="socialLink.url"
-                                  >
-                                    <a
-                                      :href="socialLink.url"
-                                      target="_blank"
-                                      style="
-                                        display: inline-block;
-                                        color: #0d0d0d;
-                                        text-decoration: none;
-                                      "
-                                    >
-                                      {{ socialLink.text }}
-                                    </a>
-                                    <span
-                                      v-if="index < socialLinks.length - 1"
-                                      style="
-                                        display: inline-block;
-                                        width: 3px;
-                                        height: 3px;
-                                        background-color: #b3b3b3;
-                                        border-radius: 50%;
-                                        margin: 3px 4px;
-                                      "
-                                    ></span>
-                                  </template>
-                                </td>
-                              </tr>
-                            </tbody>
-                          </table>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </td>
-      </tr>
-    </tbody>
+              </template>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding-top: 12px; border-top: 1px solid #d1d1d1">
+              <template v-for="(link, index) in socialLinks" :key="link.url">
+                <a
+                  :href="link.url"
+                  style="
+                    display: inline-block;
+                    text-decoration: none;
+                    font-family: Arial, sans-serif;
+                    font-size: 12px;
+                    font-weight: 400;
+                    color: #666666;
+                  "
+                  >{{ link.text }}</a
+                >
+                <span
+                  v-if="index < socialLinks.length - 1"
+                  style="
+                    display: inline-block;
+                    vertical-align: middle;
+                    width: 3px;
+                    height: 3px;
+                    background: #d1d1d1;
+                    border-radius: 50%;
+                    margin: 0 6px;
+                  "
+                ></span>
+              </template>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
   </table>
 </template>
 
@@ -174,6 +118,7 @@ export default {
   props: {
     name: { type: String, required: true },
     description: { type: String, default: "" },
+    website: { type: String, default: "" },
     bodyLinks: { type: Array, default: () => [] },
     socialLinks: { type: Array, default: () => [] },
   },

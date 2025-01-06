@@ -1,4 +1,3 @@
-// SignaturePreview.vue
 <template>
   <div class="signatures-container">
     <div class="signatures">
@@ -20,18 +19,7 @@
           <div class="window-body">
             <component
               :is="componentName"
-              :name="userData.name"
-              :description="userData.description"
-              :companyName="userData.companyName"
-              :companyTagline="userData.companyTagline"
-              :phone="userData.phone"
-              :email="userData.email"
-              :website="userData.website"
-              :websiteUrl="userData.websiteUrl"
-              :bodyLinks="parseLinks(userData.bodyLinks)"
-              :socialLinks="parseLinks(userData.socialLinks)"
-              :copyrights="userData.copyrights"
-              :disclaimer="userData.disclaimer"
+              v-bind="processedUserData"
               ref="signatureComponents"
               class="signature"
             />
@@ -54,27 +42,35 @@ export default {
       type: Object,
       required: true,
       default: () => ({
-        name: "name",
-        description: "description",
-        companyName: "companyName",
-        companyTagline: "companyTagline",
-        phone: "phone",
-        email: "email",
-        website: "website",
-        websiteUrl: "websiteUrl",
-        bodyLinks: [
-          { text: "bodyLink", url: "https://" },
-          { text: "bodyLink", url: "https://" },
-          { text: "bodyLink", url: "https://" },
-        ],
-        socialLinks: [
-          { text: "socialLink", url: "https://" },
-          { text: "socialLink", url: "https://" },
-          { text: "socialLink", url: "https://" },
-        ],
-        copyrights: "copyrights",
-        disclaimer: "disclaimer",
+        name: "",
+        description: "",
+        companyName: "",
+        companyTagline: "",
+        phone: "",
+        email: "",
+        website: "",
+        websiteUrl: "",
+        bodyLinks: [],
+        socialLinks: [],
+        copyrights: "",
+        disclaimer: "",
       }),
+    },
+  },
+
+  computed: {
+    processedUserData() {
+      return {
+        ...this.userData,
+        bodyLinks: this.userData.bodyLinks.map((link) => ({
+          text: String(link.text || ""),
+          url: String(link.url || ""),
+        })),
+        socialLinks: this.userData.socialLinks.map((link) => ({
+          text: String(link.text || ""),
+          url: String(link.url || ""),
+        })),
+      };
     },
   },
 
@@ -90,13 +86,6 @@ export default {
   },
 
   methods: {
-    parseLinks(links) {
-      return links.map((link) => ({
-        text: link,
-        url: link,
-      }));
-    },
-
     async copySignature(index) {
       try {
         const signatureHtml =
@@ -155,6 +144,6 @@ export default {
 
 .window-body {
   padding: 2rem;
-  background: linear-gradient(var(--neutral-1) 0%, var(--neutral-2) 50%);
+  background-color: white;
 }
 </style>

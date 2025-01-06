@@ -2,179 +2,194 @@
   <table
     cellspacing="0"
     cellpadding="0"
+    border="0"
     style="
+      display: table;
       border-collapse: separate;
       border-spacing: 0;
-      width: 100%;
-      font-family: sans-serif;
-      max-width: 800px;
-      min-width: 500px;
-      color: #000000;
-      display: table;
       vertical-align: top;
+      width: 100%;
+      max-width: 600px;
+      min-width: 320px;
+      font-family: Arial, sans-serif;
     "
   >
     <tbody>
       <tr>
-        <td style="border-radius: 12px; padding: 16px; background: #e8e8e8">
+        <td>
           <table
-            style="border-collapse: seperate; border-spacing: 0; width: 100%"
             cellspacing="0"
             cellpadding="0"
+            border="0"
+            style="
+              border-collapse: separate;
+              border-spacing: 0;
+              width: 100%;
+              padding: 16px;
+              border-radius: 12px;
+              background: #e8e8e8;
+            "
           >
             <tbody>
               <tr>
                 <td>
                   <table
+                    cellspacing="0"
+                    cellpadding="0"
+                    border="0"
                     style="
-                      border-collapse: seperate;
+                      border-collapse: separate;
                       border-spacing: 0;
                       width: 100%;
                     "
-                    cellspacing="0"
-                    cellpadding="0"
                   >
                     <tbody>
                       <tr>
                         <td style="width: 56px; padding-right: 16px">
-                          <a href="#" target="_blank"
-                            ><img
+                          <a
+                            :href="websiteUrl"
+                            target="_blank"
+                            style="display: block; text-decoration: none"
+                          >
+                            <img
                               src="https://placeholder.com/56x56"
                               width="56"
                               height="56"
-                              style="border-radius: 50%"
-                          /></a>
+                              :alt="website"
+                              style="display: block"
+                            />
+                          </a>
                         </td>
-
                         <td>
                           <table
+                            cellspacing="0"
+                            cellpadding="0"
+                            border="0"
                             style="
-                              border-collapse: seperate;
+                              border-collapse: separate;
                               border-spacing: 0;
                               width: 100%;
                             "
-                            cellspacing="0"
-                            cellpadding="0"
                           >
                             <tbody>
                               <tr>
                                 <td>
-                                  <h1
+                                  <p
                                     style="
-                                      margin: 0px;
+                                      font-family: Arial, sans-serif;
                                       font-size: 16px;
                                       font-weight: 700;
+                                      margin: 0;
                                       color: #000000;
-                                      font-family: 'Trebuchet MS', sans-serif;
                                     "
                                   >
                                     {{ name }}
-                                  </h1>
-
-                                  <h2
+                                  </p>
+                                  <p
                                     style="
-                                      margin: 0;
+                                      font-family: Arial, sans-serif;
                                       font-size: 14px;
                                       font-weight: 400;
+                                      margin: 0;
                                       color: #4d4d4d;
-                                      margin-top: 4px;
-                                      font-family: 'Trebuchet MS', sans-serif;
                                     "
                                   >
                                     {{ description }}
-                                  </h2>
+                                  </p>
                                 </td>
-
-                                <td style="float: right">
-                                  <a
-                                    href="#"
+                                <td
+                                  style="text-align: right; vertical-align: top"
+                                >
+                                  <table
+                                    cellspacing="0"
+                                    cellpadding="0"
+                                    border="0"
                                     style="
-                                      display: inline-block;
-                                      text-decoration: none;
+                                      border-collapse: separate;
+                                      border-spacing: 0;
+                                      float: right;
                                     "
-                                    target="_blank"
-                                    ><img
-                                      style="
-                                        width: 20px;
-                                        height: 20px;
-                                        border-radius: 50%;
-                                      "
-                                      src="https://placeholder.com/20x20"
-                                  /></a>
-
-                                  <a
-                                    style="
-                                      display: inline-block;
-                                      text-decoration: none;
-                                      margin-left: 8px;
-                                    "
-                                    href="#"
-                                    target="_blank"
-                                    ><img
-                                      style="
-                                        width: 20px;
-                                        height: 20px;
-                                        border-radius: 50%;
-                                      "
-                                      src="https://placeholder.com/20x20"
-                                  /></a>
-
-                                  <a
-                                    style="
-                                      display: inline-block;
-                                      text-decoration: none;
-                                      margin-left: 8px;
-                                    "
-                                    href="#"
-                                    target="_blank"
-                                    ><img
-                                      style="
-                                        width: 20px;
-                                        height: 20px;
-                                        border-radius: 50%;
-                                      "
-                                      src="https://placeholder.com/20x20"
-                                  /></a>
-
-                                  <a
-                                    style="
-                                      display: inline-block;
-                                      text-decoration: none;
-                                      margin-left: 8px;
-                                    "
-                                    href="#"
-                                    target="_blank"
-                                    ><img
-                                      style="
-                                        width: 20px;
-                                        height: 20px;
-                                        border-radius: 50%;
-                                      "
-                                      src="https://placeholder.com/20x20"
-                                  /></a>
+                                  >
+                                    <tr>
+                                      <td
+                                        style="width: 20px; padding-left: 4px"
+                                      >
+                                        <a
+                                          href="#"
+                                          target="_blank"
+                                          style="
+                                            display: inline-block;
+                                            text-decoration: none;
+                                          "
+                                        >
+                                          <img
+                                            width="20"
+                                            height="20"
+                                            style="display: block"
+                                            src="https://placeholder.com/20x20"
+                                            alt="social"
+                                          />
+                                        </a>
+                                      </td>
+                                      <td
+                                        style="width: 20px; padding-left: 4px"
+                                      >
+                                        <a
+                                          href="#"
+                                          target="_blank"
+                                          style="
+                                            display: inline-block;
+                                            text-decoration: none;
+                                          "
+                                        >
+                                          <img
+                                            width="20"
+                                            height="20"
+                                            style="display: block"
+                                            src="https://placeholder.com/20x20"
+                                            alt="social"
+                                          />
+                                        </a>
+                                      </td>
+                                      <td
+                                        style="width: 20px; padding-left: 4px"
+                                      >
+                                        <a
+                                          href="#"
+                                          target="_blank"
+                                          style="
+                                            display: inline-block;
+                                            text-decoration: none;
+                                          "
+                                        >
+                                          <img
+                                            width="20"
+                                            height="20"
+                                            style="display: block"
+                                            src="https://placeholder.com/20x20"
+                                            alt="social"
+                                          />
+                                        </a>
+                                      </td>
+                                    </tr>
+                                  </table>
                                 </td>
                               </tr>
                             </tbody>
                           </table>
-
                           <table
+                            cellspacing="0"
+                            cellpadding="0"
+                            border="0"
                             style="
-                              border-collapse: seperate;
+                              border-collapse: separate;
                               border-spacing: 0;
                               width: 100%;
                             "
-                            cellspacing="0"
-                            cellpadding="0"
                           >
                             <tbody>
                               <tr>
-                                <td
-                                  style="
-                                    padding-top: 6px;
-                                    font-size: 12px;
-                                    font-family: 'Trebuchet MS', sans-serif;
-                                  "
-                                >
+                                <td>
                                   <template
                                     v-for="(socialLink, index) in socialLinks"
                                     :key="socialLink.url"
@@ -183,9 +198,12 @@
                                       :href="socialLink.url"
                                       target="_blank"
                                       style="
-                                        padding-top: 6px;
+                                        display: inline-block;
+                                        text-decoration: none;
+                                        font-family: Arial, sans-serif;
                                         font-size: 12px;
-                                        font-family: 'Trebuchet MS', sans-serif;
+                                        font-weight: 400;
+                                        color: #666666;
                                       "
                                     >
                                       {{ socialLink.text }}
@@ -194,11 +212,12 @@
                                       v-if="index < socialLinks.length - 1"
                                       style="
                                         display: inline-block;
+                                        vertical-align: middle;
                                         width: 3px;
                                         height: 3px;
                                         background-color: #666666;
                                         border-radius: 50%;
-                                        margin: 3px 4px;
+                                        margin: 0 6px;
                                       "
                                     ></span>
                                   </template>
@@ -226,6 +245,8 @@ export default {
   props: {
     name: { type: String, required: true },
     description: { type: String, required: true },
+    website: { type: String, required: true },
+    websiteUrl: { type: String, required: true },
     socialLinks: { type: Array, default: () => [] },
   },
 };

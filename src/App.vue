@@ -17,26 +17,27 @@ export default {
   data() {
     return {
       userData: {
-        name: "name",
-        description: "description",
-        companyName: "companyName",
-        companyTagline: "companyTagline",
-        phone: "phone",
-        email: "email",
+        name: "John Doe",
+        description: "Founder & CEO",
+        companyName: "Best Co.",
+        companyTagline: "The best company ever",
+        phone: "+00 548 562 2548",
+        email: "example@email.com",
         website: "website",
-        websiteUrl: "websiteUrl",
+        websiteUrl: "https://",
         bodyLinks: [
-          { text: "bodyLink", url: "https://" },
-          { text: "bodyLink", url: "https://" },
-          { text: "bodyLink", url: "https://" },
+          { text: "Link", url: "https://" },
+          { text: "Link", url: "https://" },
+          { text: "Link", url: "https://" },
         ],
         socialLinks: [
-          { text: "socialLink", url: "https://" },
-          { text: "socialLink", url: "https://" },
-          { text: "socialLink", url: "https://" },
+          { text: "+00 548 562 2548", url: "tel:+00 548 562 2548 " },
+          { text: "example@email.com", url: "mailto:example@email.com" },
+          { text: "LinkedIn", url: "https://" },
         ],
-        copyrights: "copyrights",
-        disclaimer: "disclaimer",
+        copyrights: "© 2022 Best Co.",
+        disclaimer:
+          "This email and any files transmitted with it are confidential and intended solely for the use of the individual or entity to whom they are addressed. Please notify the sender immediately by e-mail if you have received this e-mail by mistake and delete this e-mail from your system. If you are not the intended recipient you are notified that disclosing, copying, distributing or taking any action in reliance on the contents of this information is strictly prohibited.",
       },
     };
   },
