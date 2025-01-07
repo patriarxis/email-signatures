@@ -32,34 +32,36 @@
               margin-bottom: 4px;
             "
           >
-            <tr>
-              <td>
-                <p
-                  style="
-                    font-family: Arial, sans-serif;
-                    font-size: 18px;
-                    font-weight: bold;
-                    margin: 0;
-                    color: #f2f2f2;
-                  "
-                >
-                  {{ name }}
-                </p>
-                <a
-                  :href="'tel:' + phone"
-                  style="
-                    display: block;
-                    text-decoration: none;
-                    font-family: Arial, sans-serif;
-                    font-size: 14px;
-                    font-weight: 400;
-                    margin-top: 4px;
-                    color: #f2f2f2;
-                  "
-                  >{{ phone }}</a
-                >
-              </td>
-            </tr>
+            <tbody>
+              <tr>
+                <td>
+                  <p
+                    style="
+                      font-family: Arial, sans-serif;
+                      font-size: 18px;
+                      font-weight: bold;
+                      margin: 0;
+                      color: #f2f2f2;
+                    "
+                  >
+                    {{ name }}
+                  </p>
+                  <a
+                    :href="'tel:' + phone"
+                    style="
+                      display: block;
+                      text-decoration: none;
+                      font-family: Arial, sans-serif;
+                      font-size: 14px;
+                      font-weight: 400;
+                      margin-top: 4px;
+                      color: #f2f2f2;
+                    "
+                    >{{ phone }}</a
+                  >
+                </td>
+              </tr>
+            </tbody>
           </table>
         </td>
       </tr>

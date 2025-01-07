@@ -10,6 +10,8 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
+  --red-1: #ff0000;
+
   --neutral-10: #0d0d0d;
   --neutral-9: #1a1a1a;
   --neutral-8: #333333;
@@ -20,7 +22,7 @@
   --neutral-3: #b3b3b3;
   --neutral-2: #cccccc;
   --neutral-1: #e6e6e6;
-  --neutral-0: #e6e6e6;
+  --neutral-0: #f2f2f2;
 }
 
 * {
@@ -31,8 +33,17 @@
   scrollbar-width: none;
 }
 
+:focus {
+  outline: var(--red-1) solid 1px;
+}
+
 ::-webkit-scrollbar {
   display: none;
+}
+
+::selection {
+  background-color: var(--red-1);
+  color: var(--neutral-0);
 }
 
 html,
@@ -45,7 +56,7 @@ body {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  color: var(--neutral-9);
+  color: var(--neutral-8);
   background-color: var(--neutral-1);
 }
 
