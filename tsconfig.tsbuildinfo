@@ -1,0 +1,1 @@
+{"root":["./src/main.ts","./src/shims-vue.d.ts","./src/vite-env.d.ts","./src/app.vue","./src/components/signatureinput.vue","./src/components/signaturepreview.vue","./src/signatures/cleanslate.vue","./src/signatures/corporatepro.vue","./src/signatures/darkedge.vue","./src/signatures/profileplus.vue"],"version":"5.6.3"}

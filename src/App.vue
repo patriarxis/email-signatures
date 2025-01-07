@@ -5,11 +5,32 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import { defineComponent } from "vue";
 import SignatureInput from "./components/SignatureInput.vue";
 import SignaturePreview from "./components/SignaturePreview.vue";
 
-export default {
+interface BodyLink {
+  text: string;
+  url: string;
+}
+
+interface UserData {
+  name: string;
+  description: string;
+  companyName: string;
+  companyTagline: string;
+  phone: string;
+  email: string;
+  website: string;
+  websiteUrl: string;
+  bodyLinks: BodyLink[];
+  socialLinks: BodyLink[];
+  copyrights: string;
+  disclaimer: string;
+}
+
+export default defineComponent({
   components: {
     SignatureInput,
     SignaturePreview,
@@ -38,15 +59,15 @@ export default {
         copyrights: "© 2022 Best Co.",
         disclaimer:
           "This email and any files transmitted with it are confidential and intended solely for the use of the individual or entity to whom they are addressed. Please notify the sender immediately by e-mail if you have received this e-mail by mistake and delete this e-mail from your system. If you are not the intended recipient you are notified that disclosing, copying, distributing or taking any action in reliance on the contents of this information is strictly prohibited.",
-      },
+      } as UserData,
     };
   },
   methods: {
-    updateUserData(newData) {
+    updateUserData(newData: Partial<UserData>) {
       this.userData = { ...this.userData, ...newData };
     },
   },
-};
+});
 </script>
 
 <style>
